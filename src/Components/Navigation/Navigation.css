@@ -32,7 +32,7 @@
 }
 
 .nav-user:hover {
-  background: #f0f0f0;
+  background: #80cbe4;
 }
 
 .nav-user-username {
@@ -41,4 +41,14 @@
 
 .nav-user-pic {
   margin-right: 10px;
+}
+
+.expand-btn {
+  transform: rotate(0deg);
+  transition: transform 0.25s linear;
+}
+
+.expand-btn.isdown {
+  transform: rotate (180deg);
+  transition: transform 0.25s linear;
 }

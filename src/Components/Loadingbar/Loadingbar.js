@@ -8,7 +8,7 @@ export default function Loadingbar(props) {
           style={{
             background: "green",
             width: `${props.loaded}%`,
-            transition: "width 300ms",
+            transition: "width 200ms",
           }}
         ></div>
       )}

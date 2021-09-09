@@ -41,9 +41,11 @@ export default function Mainpage() {
       setToken(data.login.token);
 
       setLoadingPercent(100);
+      // pause for the duration of the loading bar animation
+      // eslint-disable-next-line
       const timer = setTimeout(() => {
         setLoadingPercent(0);
-      }, 300);
+      }, 200);
 
       return true;
     } catch (err) {
@@ -51,10 +53,27 @@ export default function Mainpage() {
       return false;
     }
   };
+  const handleLogOut = async () => {
+    setLoadingPercent(80);
+    Auth.logout();
+    setUser(null);
+    setToken(null);
+
+    setLoadingPercent(100);
+    // pause for the duration of the loading bar animation
+    // eslint-disable-next-line
+    const timer = setTimeout(() => {
+      setLoadingPercent(0);
+    }, 200);
+  };
 
   return (
     <div>
-      <Navigation user={user} openModal={handleModalOpen} />
+      <Navigation
+        user={user}
+        openModal={handleModalOpen}
+        userLogout={handleLogOut}
+      />
       <Loadingbar loaded={loadingPercent} />
       <Modal
         visible={visible}
