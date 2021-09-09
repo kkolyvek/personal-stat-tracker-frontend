@@ -90,3 +90,9 @@
   transform: scale(1.05);
   transition: transform 300ms;
 }
+
+.log-into-account-button {
+  border: none;
+  background: none;
+  text-decoration: underline;
+}

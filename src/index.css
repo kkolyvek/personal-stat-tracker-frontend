@@ -29,3 +29,10 @@ code {
 button:hover {
   cursor: pointer;
 }
+
+.input {
+  font-size: 16px;
+  font-size: max(16px, 1em);
+  font-family: inherit;
+  background-color: #fff;
+}

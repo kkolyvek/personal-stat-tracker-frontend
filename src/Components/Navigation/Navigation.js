@@ -38,7 +38,13 @@ export default function Navigation(props) {
             />
           </button>
           {dropdownOpen === true ? (
-            <Navdropdown isOpen={dropdownOpen} userLogout={props.userLogout} />
+            <Navdropdown
+              isOpen={dropdownOpen}
+              userLogout={() => {
+                props.userLogout();
+                setDropdownOpen(false);
+              }}
+            />
           ) : null}
         </div>
       ) : (

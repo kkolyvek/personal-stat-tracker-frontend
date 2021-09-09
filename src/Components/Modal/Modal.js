@@ -57,33 +57,104 @@ export default function Modal(props) {
             <FontAwesomeIcon icon={faTimes} />
           </button>
           <div className="modal-header">
-            <h4 className="modal-title">Log in</h4>
-          </div>
-          <div className="modal-body">
-            <form className="login-form" onSubmit={handleFormSubmit}>
-              <input
-                type="text"
-                required
-                placeholder="username"
-                value={usernameInput}
-                onChange={(e) => {
-                  e.preventDefault();
-                  setUsernameInput(e.target.value);
+            <button className="modal-title" onClick={props.setTabLogin}>
+              <h4
+                style={{
+                  textDecoration:
+                    props.activeTab === "login" ? "underline" : "none",
                 }}
-              />
-              <input
-                type="password"
-                required
-                placeholder="password"
-                value={passwordInput}
-                onChange={(e) => {
-                  e.preventDefault();
-                  setPasswordInput(e.target.value);
+              >
+                Log in
+              </h4>
+            </button>
+            <button className="modal-title" onClick={props.setTabSignup}>
+              <h4
+                style={{
+                  textDecoration:
+                    props.activeTab === "signup" ? "underline" : "none",
                 }}
-              />
-              <input type="submit" value="Go!" />
-            </form>
+              >
+                Sign Up
+              </h4>
+            </button>
           </div>
+          <CSSTransition
+            in={props.activeTab === "login"}
+            unmountOnExit
+            timeout={300}
+            classNames="modal-primary"
+          >
+            <div className="modal-body">
+              <form className="login-form" onSubmit={handleFormSubmit}>
+                <input
+                  type="text"
+                  required
+                  placeholder="username"
+                  value={usernameInput}
+                  onChange={(e) => {
+                    e.preventDefault();
+                    setUsernameInput(e.target.value);
+                  }}
+                  className="custom-login-signup-input"
+                />
+                <input
+                  type="password"
+                  required
+                  placeholder="password"
+                  value={passwordInput}
+                  onChange={(e) => {
+                    e.preventDefault();
+                    setPasswordInput(e.target.value);
+                  }}
+                  className="custom-login-signup-input"
+                />
+                <input
+                  type="submit"
+                  value="Go!"
+                  className="custom-submit-input"
+                />
+              </form>
+            </div>
+          </CSSTransition>
+
+          <CSSTransition
+            in={props.activeTab === "signup"}
+            unmountOnExit
+            timeout={300}
+            classNames="modal-secondary"
+          >
+            <div className="modal-body">
+              <form className="login-form" onSubmit={handleFormSubmit}>
+                <input
+                  type="text"
+                  required
+                  placeholder="username"
+                  value={usernameInput}
+                  onChange={(e) => {
+                    e.preventDefault();
+                    setUsernameInput(e.target.value);
+                  }}
+                  className="custom-login-signup-input"
+                />
+                <input
+                  type="password"
+                  required
+                  placeholder="password"
+                  value={passwordInput}
+                  onChange={(e) => {
+                    e.preventDefault();
+                    setPasswordInput(e.target.value);
+                  }}
+                  className="custom-login-signup-input"
+                />
+                <input
+                  type="submit"
+                  value="Go!"
+                  className="custom-submit-input"
+                />
+              </form>
+            </div>
+          </CSSTransition>
         </div>
       </div>
     </CSSTransition>

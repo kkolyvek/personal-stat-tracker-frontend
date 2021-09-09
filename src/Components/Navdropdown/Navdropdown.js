@@ -20,6 +20,9 @@ export default function Navdropdown(props) {
         unmountOnExit
       > */}
       <div className="dropdown">
+        <button className="nav-dropdown-btn">
+          <h4>Profile</h4>
+        </button>
         <button
           className="nav-dropdown-btn"
           onClick={() => {

@@ -31,13 +31,22 @@ export default function Splashpage(props) {
         <button
           className="create-account-button"
           onClick={() => {
+            props.setTabSignup();
             props.openModal();
           }}
         >
           Create an Account
           <FontAwesomeIcon icon={faCaretRight} style={{ marginLeft: "10px" }} />
         </button>
-        {/* <a href="">or log in</a> */}
+        <button
+          className="log-into-account-button"
+          onClick={() => {
+            props.setTabLogin();
+            props.openModal();
+          }}
+        >
+          or log in
+        </button>
       </div>
     </main>
   );

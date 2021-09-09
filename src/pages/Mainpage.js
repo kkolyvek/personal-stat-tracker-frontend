@@ -11,6 +11,7 @@ import Splashpage from "../Components/Splashpage/Splashpage.js";
 export default function Mainpage() {
   // STATE VARIABLES
   const [visible, setVisible] = useState(false); // modal visibility
+  const [activeModalTab, setActiveModalTab] = useState("login"); // initial modal tab
   const [loadingPercent, setLoadingPercent] = useState(0); // percentage for loading bar
   const [user, setUser] = useState(null); // logged in user
   const [token, setToken] = useState(null); // JWT
@@ -80,8 +81,23 @@ export default function Mainpage() {
         openModal={handleModalOpen}
         closeModal={handleModalClose}
         userLogin={handleLogIn}
+        activeTab={activeModalTab}
+        setTabLogin={() => {
+          setActiveModalTab("login");
+        }}
+        setTabSignup={() => {
+          setActiveModalTab("signup");
+        }}
       />
-      <Splashpage openModal={handleModalOpen} />
+      <Splashpage
+        openModal={handleModalOpen}
+        setTabLogin={() => {
+          setActiveModalTab("login");
+        }}
+        setTabSignup={() => {
+          setActiveModalTab("signup");
+        }}
+      />
     </div>
   );
 }
