@@ -18,8 +18,9 @@ class AuthService {
   }
 
   // save user token to localStorage and reloads app
-  login(idToken) {
+  login(idToken, user) {
     localStorage.setItem("id_token", idToken);
+    localStorage.setItem("user", JSON.stringify(user));
   }
 
   // clears token from localStorage and relaods app

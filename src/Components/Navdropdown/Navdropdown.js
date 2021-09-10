@@ -1,5 +1,5 @@
 import React from "react";
-// import { CSSTransition } from "react-transition-group";
+import { CSSTransition } from "react-transition-group";
 import "./Navdropdown.css";
 
 // ==--==--==--==--==--==--==--==--==--==--==--==--==--==--==--==--==--==--==--==
@@ -12,27 +12,32 @@ export default function Navdropdown(props) {
   //   };
 
   return (
-    <div className="nav-dropdown">
-      {/* <CSSTransition
-        in={props.isOpen}
-        timeout={500}
-        classNames="dropdown"
-        unmountOnExit
-      > */}
-      <div className="dropdown">
-        <button className="nav-dropdown-btn">
-          <h4>Profile</h4>
-        </button>
-        <button
-          className="nav-dropdown-btn"
-          onClick={() => {
-            props.userLogout();
-          }}
-        >
-          <h4>Logout</h4>
-        </button>
+    <CSSTransition
+      in={props.isOpen}
+      unmountOnExit
+      classNames="dropdown"
+      timeout={{ enter: 0, exit: 300 }}
+    >
+      <div className="nav-dropdown">
+        <div className="nav-dropdown-content-wrapper">
+          <button
+            className="nav-dropdown-btn"
+            onClick={() => {
+              window.location = `/${props.user.username}`;
+            }}
+          >
+            <h4>Profile</h4>
+          </button>
+          <button
+            className="nav-dropdown-btn"
+            onClick={() => {
+              props.userLogout();
+            }}
+          >
+            <h4>Logout</h4>
+          </button>
+        </div>
       </div>
-      {/* </CSSTransition> */}
-    </div>
+    </CSSTransition>
   );
 }

@@ -7,7 +7,7 @@ import {
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
 
-import Mainpage from "./pages/Mainpage.js";
+import Authwrapper from "./pages/Authwrapper.js";
 
 // ==--==--==--==--==--==--==--==--==--==--==--==--==--==--==
 
@@ -35,7 +35,7 @@ function App() {
   return (
     <div className="App">
       <ApolloProvider client={client}>
-        <Mainpage />
+        <Authwrapper />
       </ApolloProvider>
     </div>
   );

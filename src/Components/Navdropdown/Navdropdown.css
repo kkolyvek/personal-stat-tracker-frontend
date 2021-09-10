@@ -25,11 +25,12 @@
   color: inherit;
 }
 
-.dropdown {
+.nav-dropdown-content-wrapper {
   display: flex;
   flex-direction: column;
 }
 
+/* TRANSITION ITEMS */
 .dropdown-enter {
   transform: translateY(-110%);
 }
@@ -44,3 +45,4 @@
   transform: translateY(-110%);
   transition: all 500ms ease;
 }
+/* ================== */

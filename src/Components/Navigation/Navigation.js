@@ -16,7 +16,9 @@ export default function Navigation(props) {
 
   return (
     <nav className="navbar">
-      <div className="logo-item">Cal-Counter 9000</div>
+      <a href="/" className="logo-item">
+        Cal-Counter 9000
+      </a>
       {props.user ? (
         <div>
           <button
@@ -40,6 +42,7 @@ export default function Navigation(props) {
           {dropdownOpen === true ? (
             <Navdropdown
               isOpen={dropdownOpen}
+              user={props.user}
               userLogout={() => {
                 props.userLogout();
                 setDropdownOpen(false);
